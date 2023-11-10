@@ -235,5 +235,49 @@ describe('Ui Addition - Component', () => {
     // Assert
     expect(el.innerText).toContain('4');
   });
+
+  // Potencia (exp)
+it('Should call exp method', () => {
+  // Arrange
+  let result = 0;
+  component.operator1 = 2;
+  component.operator2 = 3;
+
+  // Act
+  component.exp();
+  result = component.result;
+
+  // Assert
+  expect(result).toBe(8);
+});
+
+it('should calculate operator1 to the power of operator2 when I click the exp button ', () => {
+  // Arrange 
+  component.operator1 = 2;
+  component.operator2 = 4;
+  let expButton = fixture.debugElement.query(By.css('.exp-button'));
+
+  // Act
+  expButton.triggerEventHandler('click', null);
+
+  // Assert
+  expect(component.result).toBe(16);
+});
+
+it('Should render result of exp in result div', () => {
+  // Arrange
+  component.operator1 = 3;
+  component.operator2 = 2;
+
+  // Act
+  component.exp();
+  fixture.detectChanges();
+
+  let de = fixture.debugElement.query(By.css('.result'));
+  let el: HTMLElement = de.nativeElement;
+
+  // Assert
+  expect(el.innerText).toContain('9');
+});
 });
 
