@@ -1,36 +1,95 @@
 .calculator {
-    width: 150px;
-    text-align: center;
-    color: #999;
+    background-color: #6cc7cb;
+  margin-top:50px;
+  width: 320px;
+  height: 400px;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius: 20px;
+  border:0.5px solid black; 
+  }
+
+.screen {
+    display: flex;
+    margin-left: 15px;
+    margin-top: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #cdeef0;
+    width: 90%;
+    height: 160px;
+    border: 2px solid black;
+    height: 200px;
+    border-radius: 20px;
+}
+  .input-group {
+    margin-bottom: 10px;
+  }
+  
+  .input-group-addon {
+    background-color: #20A8B1;
+    border: 1px solid #20A8B1;
+    border-radius: 3px;
+    padding: 5px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #465771;
+    border: 1px solid #2B3B4E;
+    color: #FFFFFF;
+  }
+  
+  .wfont {
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 5px;
+    color: #20A8B1;
+  }
+
+  .button-screen {
+    display: flex;
+    margin-left: 15px;
+    margin-top: 15px;
+    align-items: top;
+    justify-content: center;
+    width: 90%;
+    height: 100px;
+}
+  .addition-button {
+    font-size: 50px;
+    cursor: pointer;
+    color: yellow;
+}
+.subtraction-button {
+    font-size: 50px;
+    cursor: pointer;
+    color: blue;
 }
 
-.result {
-    font-size: 3.0em;
-    font-weight: bold;
+.power-button{
+    display: flex;
+    margin-left: 15px;
+    margin-top: 10px;
+    align-items: bottom;
+    justify-content: right;
+    width: 90%;
+    height: 100px; 
+
+    font-size: 40px;
+    cursor: pointer;
     color: red;
-
 }
-
-.operator1 {
-    font-size: 1.5em;
+  
+  .result {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
     font-weight: bold;
-    color: black;
-
-}
-
-.operator2 {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: blue;
-
-}
-
-.addition-button {
-    cursor: pointer;
-    color: blue;
-}
-.substraction-button {
-    cursor: pointer;
-    color: green;
-}
+    color: #20A8B1;
+  }
+  
 
