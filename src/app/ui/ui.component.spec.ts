@@ -21,6 +21,8 @@ describe('Ui Addition - Component', () => {
     fixture.detectChanges();
   });
 
+  //Suma
+
   it('Should call addition method', () => {
      // Arrange
      let result = 0;
@@ -97,6 +99,82 @@ describe('Ui Addition - Component', () => {
     // Assert
     expect(el.innerText).toContain('10');
      
+  });
+
+
+  //Resta
+  it('Should call subtraction method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 5;
+    component.operator2 = 2;
+
+    // Act
+    component.substraction();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(3);
+  });
+
+  it('Should set operator1 model through ngModel', async() => {
+    // Arrange 
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const inputElement = fixture.debugElement.query(By.css('input[name="operator1"]')).nativeElement;
+
+    // Act 
+    inputElement.value = '3.1416';
+    inputElement.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+
+    // Assert 
+    expect(component.operator1).toEqual(3.1416);
+  });
+
+  it('Should set operator2 model through ngModel', async() => {
+    // Arrange 
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const inputElement = fixture.debugElement.query(By.css('input[name="operator2"]')).nativeElement;
+
+    // Act 
+    inputElement.value = '2.71';
+    inputElement.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+
+    // Assert 
+    expect(component.operator2).toEqual(2.71);
+  });
+
+  it('should subtract operator2 from operator1 when I click the subtraction button ', () => {
+    // Arrange 
+    component.operator1 = 5.0;
+    component.operator2 = 2.5;
+    let subtractionButton = fixture.debugElement.query(By.css('.substraction-button'));
+
+    // Act
+    subtractionButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(2.5);
+
+   });
+
+  it('Should render difference in result div', () => {
+    // Arrange
+    component.operator1 = 5;
+    component.operator2 = 2;
+ 
+    // Act
+    component.substraction();
+    fixture.detectChanges();
+    
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el : HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain('3');
   });
 
 });
