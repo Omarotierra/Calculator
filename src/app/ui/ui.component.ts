@@ -57,4 +57,10 @@ export class UiComponent implements OnInit {
     this.result = myresult;
   }
 
+  clear() {
+    this.operator1 = 0;
+    this.operator2 = 0;
+    this.result = 0;
+  }
+
 }
